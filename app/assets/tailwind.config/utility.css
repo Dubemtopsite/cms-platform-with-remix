@@ -1,0 +1,59 @@
+@utility container {
+  @apply max-w-full sm:max-w-[640px] md:max-w-[870px] lg:max-w-[1000px] xl:max-w-[1300px] 2xl:max-w-[1440px];
+}
+
+@utility brand-container {
+  @apply container mx-auto px-4 md:px-4 xl:px-[10px];
+}
+
+@utility card-bg {
+  @apply bg-[#FFFFFF] dark:bg-[#ABABAB33];
+}
+
+@utility text-secondary {
+  @apply text-[#B0B0B0] dark:text-[#B0B0B0];
+}
+
+@utility text-tertiary {
+  @apply text-[#505050] dark:text-white;
+}
+
+@utility display-text {
+  @apply text-3xl md:text-5xl;
+}
+@utility display-text-1 {
+  @apply text-2xl sm:text-3xl lg:text-4xl;
+}
+@utility sub-heading {
+  @apply text-xl sm:text-2xl lg:text-3xl;
+}
+@utility sub-heading-1 {
+  @apply text-base sm:text-lg lg:text-xl;
+}
+
+@utility section-title {
+  @apply text-xl sm:text-2xl lg:text-3xl;
+}
+@utility section-title-xl {
+  @apply text-2xl sm:text-3xl lg:text-4xl;
+}
+
+@utility section-sub-title {
+  @apply text-lg sm:text-xl lg:text-2xl;
+}
+
+@utility card-title {
+  @apply text-lg sm:text-xl lg:text-xl;
+}
+
+@utility card-sub-title {
+  @apply text-base sm:text-lg md:text-xl;
+}
+
+@utility card-content {
+  @apply text-base;
+}
+
+@utility text-1 {
+  @apply text-base sm:text-lg;
+}

@@ -1,0 +1,49 @@
+@import "./color.css";
+@import "./utility.css";
+@import "./component.css";
+
+@utility body-color {
+  @apply bg-[#F5F5F5] dark:bg-[#121212];
+}
+
+@utility primary-gradient {
+  @apply bg-gradient-to-r from-[#6CA125] to-[#9EEB38];
+}
+
+@utility sub-heading {
+  @apply text-xl sm:text-2xl lg:text-3xl;
+}
+@utility sub-heading-1 {
+  @apply text-base sm:text-lg lg:text-xl;
+}
+
+@utility header-2 {
+  @apply text-3xl font-bold text-brand-green_dark lg:text-[40px] lg:leading-[100%] dark:text-zinc-100;
+}
+
+@utility header-2_color {
+  @apply text-brand-green_dark dark:text-zinc-100;
+}
+
+@utility client-page-container {
+  @apply brand-container pt-[160px];
+}
+
+@utility dashboard-page-title {
+  @apply text-xl font-bold lg:text-3xl;
+}
+
+@utility dashboard-page-subtitle {
+  @apply text-sm font-medium text-[#3E3E3B] dark:text-[#D9DBE9];
+}
+
+@utility dashboard-page-container {
+  @apply container mx-auto flex flex-col gap-5;
+}
+
+@utility input-element-border {
+  @apply border border-[#D0D5DD] dark:border-[#333741];
+  /*  */
+}
+
+/* custom colors */

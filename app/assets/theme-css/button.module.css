@@ -1,0 +1,43 @@
+@reference './../app.css';
+
+.root {
+  @apply text-sm font-[500] tracking-wider ring-offset-white dark:ring-offset-black md:text-base;
+
+  &[data-variant="filled"],
+  &[data-variant="primary"] {
+    @apply h-[40px] w-full rounded-md bg-brand text-white focus:ring-2 focus:ring-brand focus:ring-offset-2 disabled:bg-brand-300 md:h-[40px] md:rounded-md;
+  }
+
+  &[data-variant="primary-outline"] {
+    @apply h-[40px] w-full rounded-md bg-transparent border-brand focus:ring-2 focus:ring-brand focus:ring-offset-2 dark:text-brand dark:focus:ring-brand md:h-[40px] md:rounded-md;
+  }
+
+  /* &[data-variant="secondary"] {
+    @apply h-[40px] w-full rounded-md bg-brand-yellow-500 text-black focus:ring-2 focus:ring-brand-yellow-500 focus:ring-offset-2 disabled:bg-brand-yellow-300 md:h-[40px] md:rounded-md;
+  }
+
+  &[data-variant="secondary-outline"] {
+    @apply h-[40px] w-full rounded-md border-2 border-brand-yellow-500 bg-transparent text-black focus:ring-2 focus:ring-brand-yellow-500 focus:ring-offset-2 dark:text-white md:h-[40px] md:rounded-md;
+  }
+
+  &[data-variant="secondary-clear"] {
+    @apply h-[40px] w-full rounded-md bg-transparent text-black focus:border-2 focus:ring-2 focus:ring-brand-yellow-500 focus:ring-offset-2 dark:text-white md:h-[40px] md:rounded-md;
+  } */
+
+  &[data-variant="danger"] {
+    @apply h-[40px] w-full rounded-md bg-red-700 !text-white focus:ring-2 focus:ring-red-700 focus:ring-offset-2 md:h-[40px] md:rounded-md;
+  }
+  &[data-variant="danger-outline"] {
+    @apply h-[40px] w-full rounded-md border-2 border-red-700 bg-transparent !text-red-700 focus:ring-2 focus:ring-red-700 focus:ring-offset-2 md:h-[40px] md:rounded-md;
+  }
+
+  &[data-variant="light-outline"] {
+    @apply h-[40px] w-full rounded-md border-2 border-light-text bg-transparent text-light-text focus:ring-2 focus:ring-light-text focus:ring-offset-2 md:h-[40px] md:rounded-md;
+  }
+
+  /* &[disabled=true], {
+    @apply h-[50px] w-full rounded-xl border-2 border-light-text bg-transparent text-light-text focus:ring-2 focus:ring-light-text focus:ring-offset-2;
+  } */
+
+  @apply disabled:!bg-[#ABABAB33] disabled:!text-light-text;
+}

@@ -1,0 +1,22 @@
+@reference './../app.css';
+
+.input {
+  @apply h-[50px] w-full rounded-lg ring-offset-white dark:ring-offset-black;
+
+  &[data-variant="filled"] {
+    @apply focus-within:border-brand focus-within:outline-none focus-within:ring-2 focus-within:ring-brand focus-within:ring-offset-2;
+  }
+
+  /* &[data-variant="filled"] {
+    @apply bg-[#0000661A] focus-within:border-brand-yellow-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-brand-yellow-500 focus-within:ring-offset-2 dark:bg-[#2C2C2C];
+  } */
+}
+.label {
+  @apply mb-2;
+}
+
+.innerInput {
+  &[data-path="password"] {
+    @apply bg-transparent;
+  }
+}

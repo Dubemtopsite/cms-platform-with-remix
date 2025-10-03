@@ -1,0 +1,30 @@
+@theme {
+  --color-brand-primary: #3b82f6;
+  --color-brand-primary_light: #9eeb38;
+  --color-brand-primary_dark: #6ca125;
+  --color-brand-secondary: #ffad1f;
+  --color-brand-secondary_light: #ffc45d;
+  --color-brand-secondary_dark: #d08b14;
+  --color-brand-dark: #292925;
+  --color-brand-dark_text: #2c393f;
+  --color-brand-dark_light: #636363;
+  --color-brand-error: #e43f40;
+  --color-brand-success: #00ba88;
+  --color-brand-warning: #f48140;
+  --color-brand-info: #2ca9dc;
+  --color-brand-green_dark: #003334;
+
+  --color-light-text: #b0b0b0;
+  --color-brand: #3b82f6;
+  --color-brand-50: #eff5ff;
+  --color-brand-100: #dbe8fe;
+  --color-brand-200: #bfd7fe;
+  --color-brand-300: #93bbfd;
+  --color-brand-400: #609afa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2570eb;
+  --color-brand-700: #1d64d8;
+  --color-brand-800: #1e55af;
+  --color-brand-900: #1e478a;
+  --color-brand-950: #172e54;
+}
