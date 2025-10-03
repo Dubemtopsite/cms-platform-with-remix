@@ -7,13 +7,14 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  index("routes/home.tsx"),
-  route("login", "routes/login.tsx"),
+  index("routes/login.tsx"),
   layout("routes/editor/layout.tsx", [
     route("editor", "routes/editor/index.tsx"),
     route("editor/new", "routes/editor/new.tsx"),
     route("editor/category", "routes/editor/category.tsx"),
   ]),
+
+  route("preview-blog/:blogId", "routes/preview-blog.tsx"),
 
   /* API */
   ...prefix("api", [

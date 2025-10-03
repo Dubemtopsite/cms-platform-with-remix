@@ -1,5 +1,6 @@
 import { Button, LoadingOverlay, Select, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { decode } from "html-entities";
 import { Save } from "lucide-react";
 import { yupResolver } from "mantine-form-yup-resolver";
 import { useEffect, useState } from "react";
@@ -39,11 +40,11 @@ export const BlogEditorComponent = ({
   const blogId = searchParams.get("blog_id");
 
   useEffect(() => {
-    if (categoryId) {
-      form.setFieldValue("categoryId", categoryId);
-    }
     if (blogId) {
       loadPageContent();
+    } else if (categoryId && !blogId) {
+      form.reset();
+      form.setFieldValue("categoryId", categoryId);
     }
   }, [categoryId, blogId]);
 
@@ -60,14 +61,16 @@ export const BlogEditorComponent = ({
         const blogContent = data.data as BlogArticleItemProps;
 
         form.setValues({
-          title: blogContent.title,
-          content: blogContent.content,
+          title: decode(blogContent.title),
+          content: decode(blogContent.content),
           userId: blogContent.userId,
           categoryId: blogContent.category.id,
         });
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsRequestProcessing(false);
     }
   };
 

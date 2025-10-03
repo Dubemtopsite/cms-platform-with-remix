@@ -6,6 +6,7 @@ import { LoginFormComponent } from "~/component/App/LoginForm";
 import { SignupFormComponent } from "~/component/App/SignupForm";
 import { prisma } from "~/lib/prisma";
 import { createUUID } from "~/lib/utils";
+import { useNavigate } from "react-router";
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
@@ -62,11 +63,13 @@ export async function action({ request }: Route.ActionArgs) {
 
 export default function LoginPage({ actionData }: Route.ComponentProps) {
   const [currentForm, setCurrentForm] = useState("login");
+  const navigate = useNavigate();
 
   const initUser = async () => {
-    const { data: user } = await supabase.auth.getUser();
-    const session = await supabase.auth.getSession();
-    console.log(user, session);
+    const doSessionExist = await supabase.auth.getSession();
+    if (doSessionExist.data.session) {
+      return navigate("/editor");
+    }
   };
 
   useEffect(() => {

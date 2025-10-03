@@ -29,6 +29,7 @@
     "@tiptap/pm": "^3.6.5",
     "@tiptap/react": "^3.6.5",
     "@tiptap/starter-kit": "^3.6.5",
+    "@vercel/react-router": "^1.2.3",
     "html-entities": "^2.5.6",
     "isbot": "^5.1.31",
     "lucide-react": "^0.544.0",

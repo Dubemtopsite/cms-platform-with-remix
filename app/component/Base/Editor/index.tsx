@@ -6,6 +6,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
 import Placeholder from "@tiptap/extension-placeholder";
+import { useEffect, useState } from "react";
 
 interface EditorProps {
   onChange: (value: string) => void;
@@ -16,6 +17,7 @@ interface EditorProps {
 }
 
 export function GeneralEditor({ value, onChange, ...props }: EditorProps) {
+  const [contentSetInitially, setContentSetInitially] = useState(false);
   const editor = useEditor({
     immediatelyRender: false,
     shouldRerenderOnTransaction: true,
@@ -35,6 +37,17 @@ export function GeneralEditor({ value, onChange, ...props }: EditorProps) {
     },
     content: value,
   });
+
+  useEffect(() => {
+    if (!contentSetInitially) {
+      setTimeout(() => {
+        if (value) {
+          editor?.commands.setContent(value);
+          setContentSetInitially(true);
+        }
+      }, 200);
+    }
+  }, [value]);
 
   return (
     <div>

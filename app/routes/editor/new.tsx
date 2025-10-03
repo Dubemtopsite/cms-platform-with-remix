@@ -39,7 +39,7 @@ export default function BlogEditorPage() {
       <title>Editor Page</title>
       <div className="flex justify-between items-center brand-container">
         <div>
-          <h1 className="display-text-1">Create Content </h1>
+          <h1 className="display-text-1"> Content Editor </h1>
           <p className="text-sm text-light-text">
             Manage platform blog content
           </p>

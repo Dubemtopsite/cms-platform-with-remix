@@ -151,7 +151,12 @@ export const RenderBlogArticleListTable = ({
 
                   <Table.Td>
                     <div className="flex gap-5 items-center">
-                      <UnstyledButton className="!text-brand !underline underline-offset-4">
+                      <UnstyledButton
+                        className="!text-brand !underline underline-offset-4"
+                        onClick={() => {
+                          window.open(`/preview-blog/${item.id}`, "_blank");
+                        }}
+                      >
                         View Article
                       </UnstyledButton>
                       <ActionIcon

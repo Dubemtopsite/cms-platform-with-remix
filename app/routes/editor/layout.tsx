@@ -1,9 +1,9 @@
 import { AppShell, Burger, Divider, Group, NavLink } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useEffect } from "react";
-import { Link, Outlet, redirect, useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router";
 import { supabase } from "~/lib/supabase";
-import { ClipboardList, Newspaper } from "lucide-react";
+import { ClipboardList, LogOut, Newspaper } from "lucide-react";
 
 // export async function loader() {
 //
@@ -14,11 +14,16 @@ export default function RouteComponent() {
   const [opened, { toggle }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
+  const [isAuthCheckCompleted, setIsAuthCheckCompleted] = useState(false);
+
   const initUser = async () => {
+    setIsAuthCheckCompleted(false);
     const doSessionExist = await supabase.auth.getSession();
     if (!doSessionExist.data.session) {
-      return navigate("/login");
+      return navigate("/");
     }
+
+    setIsAuthCheckCompleted(true);
   };
 
   useEffect(() => {
@@ -70,12 +75,19 @@ export default function RouteComponent() {
             to={"/editor/category"}
             leftSection={<ClipboardList size={18} />}
           />
+          <NavLink
+            label="Logout"
+            leftSection={<LogOut size="20" />}
+            className={` rounded-lg mt-5 !bg-brand-500/70`}
+            onClick={() => {
+              supabase.auth.signOut();
+              return navigate("/");
+            }}
+          />
         </div>
       </AppShell.Navbar>
       <AppShell.Main className="!pb-5">
-        <div className="pt-5">
-          <Outlet />
-        </div>
+        <div className="pt-5">{isAuthCheckCompleted && <Outlet />}</div>
       </AppShell.Main>
 
       {/* <AppShell.Footer p="md">Footer</AppShell.Footer> */}
