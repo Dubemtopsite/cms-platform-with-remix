@@ -13,7 +13,7 @@ import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
 
 import type { Route } from "./+types/root";
 import "./assets/app.css";
-import MantineProviderWrapper from "./providers/MantineProviderWrapper";
+import MantineProviderWrapper from "~/providers/MantineProviderWrapper";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
