@@ -9,7 +9,6 @@ import {
 import { ChevronDown } from "lucide-react";
 import { useMemo } from "react";
 import { useNavigate } from "react-router";
-import { createUUID } from "~/lib/utils";
 import type { BlogArticleModel, BlogCategoryItemModel } from "~/model";
 
 type CategoryBlogType = BlogCategoryItemModel & { article: BlogArticleModel[] };
@@ -29,7 +28,7 @@ export const CategoryTreeComponent = ({
         children: [
           ...item.article.map((article) => {
             return {
-              value: article.id,
+              value: `blog-article-item-${article.id}`,
               label: article.title,
             };
           }),
@@ -56,6 +55,10 @@ export const CategoryTreeComponent = ({
               if (node.value.startsWith("new-item") && !hasChildren) {
                 elementProps.onClick = () => {
                   navigate(`?category=${node.value.split("-item-")[1]}`);
+                };
+              } else if (node.value.startsWith("blog-article-item")) {
+                elementProps.onClick = () => {
+                  navigate(`?blog_id=${node.value.split("-item-")[1]}`);
                 };
               }
               return (

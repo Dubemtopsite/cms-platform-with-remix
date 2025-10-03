@@ -2,6 +2,7 @@ import { prisma } from "~/lib/prisma";
 import type { Route } from "./+types/manage-blog-article";
 import { encode } from "html-entities";
 import { generateSlug } from "~/lib/utils";
+import { getUserRowBySupabaseId } from "~/lib/utils/server-utils";
 
 const doArticleTitleExist = async (title: string, id?: string) => {
   if (id) {
@@ -38,6 +39,15 @@ export async function action({ request }: Route.ActionArgs) {
 
   const articleSlug = generateSlug(encodedTitle);
 
+  const doUserExist = await getUserRowBySupabaseId(user_id as string);
+
+  if (!doUserExist) {
+    return {
+      error: true,
+      message: "User does not exist",
+    };
+  }
+
   if (articleId) {
     const doTitleExist = await doArticleTitleExist(
       encodedTitle,
@@ -59,7 +69,7 @@ export async function action({ request }: Route.ActionArgs) {
         content: encodedContent,
         slug: articleSlug,
         categoryId: category_id as string,
-        userId: user_id as string,
+        // userId: user_id as string,
       },
     });
 
@@ -82,7 +92,7 @@ export async function action({ request }: Route.ActionArgs) {
         content: encodedContent,
         slug: articleSlug,
         categoryId: category_id as string,
-        userId: user_id as string,
+        userId: doUserExist.user_id,
       },
     });
 

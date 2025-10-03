@@ -36,7 +36,7 @@ export const CreateEditBlogArticleValidator = Yup.object().shape({
   categoryId: Yup.string().uuid().required(),
   title: Yup.string().required(),
   content: Yup.string().required(),
-  userId: Yup.string().uuid().required(),
+  // userId: Yup.string().uuid().required(),
 });
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CreateEditBlogArticleRequestModel

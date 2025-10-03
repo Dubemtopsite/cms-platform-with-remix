@@ -19,7 +19,8 @@ export default [
   ...prefix("api", [
     route("manage-category", "routes/api/manage-category.tsx"),
     route("delete-category", "routes/api/delete-category.tsx"),
-    route("fetch-blog-content", "routes/api/fetch-blog-content.tsx"),
+    route("fetch-blog-content/:blogId", "routes/api/fetch-blog-content.tsx"),
     route("manage-blog-article", "routes/api/manage-blog-article.tsx"),
+    route("delete-article", "routes/api/delete-article.tsx"),
   ]),
 ] satisfies RouteConfig;

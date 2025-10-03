@@ -1,17 +1,13 @@
-import {
-  Button,
-  LoadingOverlay,
-  Select,
-  Textarea,
-  TextInput,
-} from "@mantine/core";
+import { Button, LoadingOverlay, Select, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { Save } from "lucide-react";
 import { yupResolver } from "mantine-form-yup-resolver";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetcher, useRevalidator, useSearchParams } from "react-router";
+import { GeneralEditor } from "~/component/Base/Editor";
 import { useAppModalToast } from "~/hook/useModalToast";
 import { supabase } from "~/lib/supabase";
+import type { BlogArticleItemProps } from "~/model";
 import {
   CreateEditBlogArticleValidator,
   type CreateEditBlogArticleRequestModel,
@@ -40,16 +36,40 @@ export const BlogEditorComponent = ({
   });
 
   const categoryId = searchParams.get("category");
+  const blogId = searchParams.get("blog_id");
 
   useEffect(() => {
     if (categoryId) {
       form.setFieldValue("categoryId", categoryId);
     }
-  }, [categoryId]);
+    if (blogId) {
+      loadPageContent();
+    }
+  }, [categoryId, blogId]);
 
   useEffect(() => {
     handleFetcherState();
   }, [fetcher]);
+
+  const loadPageContent = async () => {
+    try {
+      if (blogId) {
+        setIsRequestProcessing(true);
+        const response = await fetch(`/api/fetch-blog-content/${blogId}`);
+        const data = await response.json();
+        const blogContent = data.data as BlogArticleItemProps;
+
+        form.setValues({
+          title: blogContent.title,
+          content: blogContent.content,
+          userId: blogContent.userId,
+          categoryId: blogContent.category.id,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleFetcherState = async () => {
     if (fetcher.state === "idle" && fetcher.data && fetcher.data.error) {
@@ -90,13 +110,23 @@ export const BlogEditorComponent = ({
       return;
     }
 
-    await fetcher.submit(
-      { ...values, userId: userId.data.user.id },
-      {
-        method: "POST",
-        action: "/api/manage-blog-article",
-      }
-    );
+    if (blogId) {
+      await fetcher.submit(
+        { ...values, userId: userId.data.user.id, articleId: blogId },
+        {
+          method: "POST",
+          action: "/api/manage-blog-article",
+        }
+      );
+    } else {
+      await fetcher.submit(
+        { ...values, userId: userId.data.user.id },
+        {
+          method: "POST",
+          action: "/api/manage-blog-article",
+        }
+      );
+    }
   };
 
   return (
@@ -144,21 +174,12 @@ export const BlogEditorComponent = ({
           {...form.getInputProps("categoryId")}
         />
 
-        <Textarea
-          label="Article Content"
-          placeholder="Enter your article content"
-          key={form.key("content")}
-          {...form.getInputProps("content")}
-          minRows={10}
-          rows={10}
-        />
-
-        {/* <ClientSideCustomEditor
+        <GeneralEditor
           placeholder={"Write a comment..."}
           key={form.key(`content`)}
           {...form.getInputProps(`content`)}
-          editorType="COMMENT"
-        /> */}
+          label="Article Content"
+        />
       </form>
     </div>
   );

@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 import "@mantine/core/styles.css";
+import "@mantine/tiptap/styles.css";
 
 import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
 
