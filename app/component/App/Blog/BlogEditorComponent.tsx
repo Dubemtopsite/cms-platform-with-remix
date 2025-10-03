@@ -70,7 +70,9 @@ export const BlogEditorComponent = ({
     } catch (error) {
       console.log(error);
     } finally {
-      setIsRequestProcessing(false);
+      setTimeout(() => {
+        setIsRequestProcessing(false);
+      }, 500);
     }
   };
 
@@ -139,51 +141,53 @@ export const BlogEditorComponent = ({
         zIndex={1000}
         overlayProps={{ radius: "sm", blur: 2 }}
       />
-      <form
-        onSubmit={form.onSubmit((values) => handleSubmit(values))}
-        className="flex flex-col gap-4 mt-2 mb-2"
-      >
-        <div className="flex justify-between">
-          <div></div>
-          <div>
-            <Button type="submit" variant="filled">
-              <div className="flex items-center ">
-                {" "}
-                <Save size={16} className="mr-2" /> Save Content
-              </div>
-            </Button>
+      {isRequestProcessing === false && (
+        <form
+          onSubmit={form.onSubmit((values) => handleSubmit(values))}
+          className="flex flex-col gap-4 mt-2 mb-2"
+        >
+          <div className="flex justify-between">
+            <div></div>
+            <div>
+              <Button type="submit" variant="filled">
+                <div className="flex items-center ">
+                  {" "}
+                  <Save size={16} className="mr-2" /> Save Content
+                </div>
+              </Button>
+            </div>
           </div>
-        </div>
-        <TextInput
-          label="Article title"
-          type="text"
-          placeholder="Enter your article title"
-          key={form.key("title")}
-          {...form.getInputProps("title")}
-        />
+          <TextInput
+            label="Article title"
+            type="text"
+            placeholder="Enter your article title"
+            key={form.key("title")}
+            {...form.getInputProps("title")}
+          />
 
-        <Select
-          label="Article Category"
-          placeholder="Select a category"
-          allowDeselect={false}
-          searchable
-          data={categoryList.map((item) => {
-            return {
-              value: item.id,
-              label: `${item.categoryName}`,
-            };
-          })}
-          key={form.key("categoryId")}
-          {...form.getInputProps("categoryId")}
-        />
+          <Select
+            label="Article Category"
+            placeholder="Select a category"
+            allowDeselect={false}
+            searchable
+            data={categoryList.map((item) => {
+              return {
+                value: item.id,
+                label: `${item.categoryName}`,
+              };
+            })}
+            key={form.key("categoryId")}
+            {...form.getInputProps("categoryId")}
+          />
 
-        <GeneralEditor
-          placeholder={"Write a comment..."}
-          key={form.key(`content`)}
-          {...form.getInputProps(`content`)}
-          label="Article Content"
-        />
-      </form>
+          <GeneralEditor
+            placeholder={"Write a comment..."}
+            key={form.key(`content`)}
+            {...form.getInputProps(`content`)}
+            label="Article Content"
+          />
+        </form>
+      )}
     </div>
   );
 };
