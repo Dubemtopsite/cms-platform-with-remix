@@ -1,0 +1,279 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs_eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/login": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/editor/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/editor/new": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/editor/category": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/preview-blog": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/manage-category": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/delete-category": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/fetch-blog-content": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/manage-blog-article": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/delete-article": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "app/root.tsx",
+        "path": "",
+        "config": {}
+      },
+      "routes/login": {
+        "id": "routes/login",
+        "parentId": "root",
+        "file": "app/routes/login.tsx",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/editor/layout": {
+        "id": "routes/editor/layout",
+        "parentId": "root",
+        "file": "app/routes/editor/layout.tsx",
+        "config": {}
+      },
+      "routes/editor/index": {
+        "id": "routes/editor/index",
+        "parentId": "routes/editor/layout",
+        "file": "app/routes/editor/index.tsx",
+        "path": "editor",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/editor/new": {
+        "id": "routes/editor/new",
+        "parentId": "routes/editor/layout",
+        "file": "app/routes/editor/new.tsx",
+        "path": "editor/new",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/editor/category": {
+        "id": "routes/editor/category",
+        "parentId": "routes/editor/layout",
+        "file": "app/routes/editor/category.tsx",
+        "path": "editor/category",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/preview-blog": {
+        "id": "routes/preview-blog",
+        "parentId": "root",
+        "file": "app/routes/preview-blog.tsx",
+        "path": "preview-blog/:blogId",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/manage-category": {
+        "id": "routes/api/manage-category",
+        "parentId": "root",
+        "file": "app/routes/api/manage-category.tsx",
+        "path": "api/manage-category",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/delete-category": {
+        "id": "routes/api/delete-category",
+        "parentId": "root",
+        "file": "app/routes/api/delete-category.tsx",
+        "path": "api/delete-category",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/fetch-blog-content": {
+        "id": "routes/api/fetch-blog-content",
+        "parentId": "root",
+        "file": "app/routes/api/fetch-blog-content.tsx",
+        "path": "api/fetch-blog-content/:blogId",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/manage-blog-article": {
+        "id": "routes/api/manage-blog-article",
+        "parentId": "root",
+        "file": "app/routes/api/manage-blog-article.tsx",
+        "path": "api/manage-blog-article",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/api/delete-article": {
+        "id": "routes/api/delete-article",
+        "parentId": "root",
+        "file": "app/routes/api/delete-article.tsx",
+        "path": "api/delete-article",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "/home/chidubem/ProjectFolder/traibe_tech/app",
+    "basename": "/",
+    "buildDirectory": "/home/chidubem/ProjectFolder/traibe_tech/build",
+    "future": {
+      "v8_middleware": false,
+      "unstable_optimizeDeps": false,
+      "unstable_splitRouteModules": false,
+      "unstable_subResourceIntegrity": false,
+      "unstable_viteEnvironmentApi": false
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "root.tsx",
+        "path": ""
+      },
+      "routes/login": {
+        "id": "routes/login",
+        "parentId": "root",
+        "file": "routes/login.tsx",
+        "index": true
+      },
+      "routes/editor/layout": {
+        "id": "routes/editor/layout",
+        "parentId": "root",
+        "file": "routes/editor/layout.tsx"
+      },
+      "routes/editor/index": {
+        "id": "routes/editor/index",
+        "parentId": "routes/editor/layout",
+        "file": "routes/editor/index.tsx",
+        "path": "editor"
+      },
+      "routes/editor/new": {
+        "id": "routes/editor/new",
+        "parentId": "routes/editor/layout",
+        "file": "routes/editor/new.tsx",
+        "path": "editor/new"
+      },
+      "routes/editor/category": {
+        "id": "routes/editor/category",
+        "parentId": "routes/editor/layout",
+        "file": "routes/editor/category.tsx",
+        "path": "editor/category"
+      },
+      "routes/preview-blog": {
+        "id": "routes/preview-blog",
+        "parentId": "root",
+        "file": "routes/preview-blog.tsx",
+        "path": "preview-blog/:blogId"
+      },
+      "routes/api/manage-category": {
+        "id": "routes/api/manage-category",
+        "parentId": "root",
+        "file": "routes/api/manage-category.tsx",
+        "path": "api/manage-category"
+      },
+      "routes/api/delete-category": {
+        "id": "routes/api/delete-category",
+        "parentId": "root",
+        "file": "routes/api/delete-category.tsx",
+        "path": "api/delete-category"
+      },
+      "routes/api/fetch-blog-content": {
+        "id": "routes/api/fetch-blog-content",
+        "parentId": "root",
+        "file": "routes/api/fetch-blog-content.tsx",
+        "path": "api/fetch-blog-content/:blogId"
+      },
+      "routes/api/manage-blog-article": {
+        "id": "routes/api/manage-blog-article",
+        "parentId": "root",
+        "file": "routes/api/manage-blog-article.tsx",
+        "path": "api/manage-blog-article"
+      },
+      "routes/api/delete-article": {
+        "id": "routes/api/delete-article",
+        "parentId": "root",
+        "file": "routes/api/delete-article.tsx",
+        "path": "api/delete-article"
+      }
+    },
+    "routeDiscovery": {
+      "mode": "lazy",
+      "manifestPath": "/__manifest"
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true,
+    "unstable_routeConfig": [
+      {
+        "id": "root",
+        "path": "",
+        "file": "root.tsx",
+        "children": [
+          {
+            "file": "routes/login.tsx",
+            "index": true
+          },
+          {
+            "file": "routes/editor/layout.tsx",
+            "children": [
+              {
+                "file": "routes/editor/index.tsx",
+                "path": "editor"
+              },
+              {
+                "file": "routes/editor/new.tsx",
+                "path": "editor/new"
+              },
+              {
+                "file": "routes/editor/category.tsx",
+                "path": "editor/category"
+              }
+            ]
+          },
+          {
+            "file": "routes/preview-blog.tsx",
+            "path": "preview-blog/:blogId"
+          },
+          {
+            "file": "routes/api/manage-category.tsx",
+            "path": "api/manage-category"
+          },
+          {
+            "file": "routes/api/delete-category.tsx",
+            "path": "api/delete-category"
+          },
+          {
+            "file": "routes/api/fetch-blog-content.tsx",
+            "path": "api/fetch-blog-content/:blogId"
+          },
+          {
+            "file": "routes/api/manage-blog-article.tsx",
+            "path": "api/manage-blog-article"
+          },
+          {
+            "file": "routes/api/delete-article.tsx",
+            "path": "api/delete-article"
+          }
+        ]
+      }
+    ]
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
